@@ -10,7 +10,7 @@
     </div>
 
     <div class="row mt-4">
-        <app-credit-card-form (updateList)="getCreditCards()" [info]="info"></app-credit-card-form>
+        <app-credit-card-form (updateList)="getCreditCards()" [info]="info" ></app-credit-card-form>
         <app-credit-card-list (editInfo)="getEditInfo($event)" [listCards]="listCards" (updateList)="getCreditCards()"></app-credit-card-list>
     </div>
 </div>

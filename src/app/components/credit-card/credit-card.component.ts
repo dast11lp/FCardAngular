@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CreditCardServeService } from '../../Service/credit-card-http.service';
@@ -28,10 +28,16 @@ export class CreditCardComponent {
     // private fb: FormBuilder,
     private toastr: ToastrService,
     private _creditCardService: CreditCardServeService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getCreditCards();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['info']) {
+      console.log("cambié");
+    }
   }
 
   getCreditCards() {
