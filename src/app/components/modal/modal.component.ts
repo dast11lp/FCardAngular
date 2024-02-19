@@ -19,10 +19,11 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = new Subscription();
     this.subscription.add(
-      this.modalService.show$.subscribe(() => this.isOpen = true)
+      this.modalService.show$.subscribe((value) => {this.isOpen = true; console.log(value);
+       })
     );
     this.subscription.add(
-      this.modalService.hide$.subscribe(()=> this.isOpen = false)
+      this.modalService.hide$.subscribe(() => this.isOpen = false)
     )
   }
 

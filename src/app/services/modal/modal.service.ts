@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class ModalService {
 
-  private _show$ = new Subject<void>();
+  private _show$ = new Subject<boolean>();
   private _hide$ = new Subject<void>();
 
   show$ = this._show$.asObservable();
@@ -15,7 +15,7 @@ export class ModalService {
   constructor() { }
 
   show() {
-    this._show$.next();
+    this._show$.next(false);
   }
 
   hide() {
