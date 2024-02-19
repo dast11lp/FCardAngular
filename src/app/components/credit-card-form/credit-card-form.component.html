@@ -3,9 +3,9 @@
         <div class="card-body">
             <h5 class="title">
                 <form [formGroup] = "form" (ngSubmit)="saveCard()">
+                    <label class="input-label" for="">Este campo es obligatorio.</label>
                     <div class="input-group input-group-lg mb-3">
                         <span class="input-group-text" id="basic-addon1">
-                            <!-- <i class="fa-solid fa-user" [class.green-icon="this.form.get('holder')"]></i> --> 
                             <i class="fa-solid fa-user" 
                                 [class.green-icon]="this.form.get('holder')?.valid"
                                 [class.red-icon]="this.form.get('holder')?.invalid && this.form.get('holder')?.touched"
@@ -15,6 +15,7 @@
                         <input formControlName="holder" type="text" class="form-control" placeholder="Titular" aria-label="Username"
                             aria-describedby="basic-addon1">
                     </div>
+                    <label class="input-label" for="">Ingresa un número de tarjeta válido de 16 dígitos.</label>
                     <div class="input-group input-group-lg mb-3">
                         <span class="input-group-text" id="basic-addon1">
                             <i class="fa-regular fa-credit-card"
@@ -28,6 +29,7 @@
 
                     <div class="row">
                         <div class="col-lg-7">
+                            <label class="input-label" for="">Ingresa la fecha de vencimiento en el formato MM/AA.</label>
                             <div class="input-group input-group-lg mb-3">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fa-regular fa-calendar"
@@ -40,6 +42,7 @@
                             </div>
                         </div>
                         <div class="col-lg-5">
+                            <label class="input-label" for="">Ingresa un código CVV válido de 3 dígitos.</label>
                             <div class="input-group input-group-lg mb-3">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fa-solid fa-key"

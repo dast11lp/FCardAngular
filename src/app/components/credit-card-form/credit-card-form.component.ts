@@ -19,13 +19,15 @@ export class CreditCardFormComponent implements OnChanges{
 
   cvv: number | undefined;
 
-  action = "Agregar";
   id: number | undefined;
 
   event: any;
 
   @Output()
   updateList: EventEmitter<void> = new EventEmitter();
+
+  @Output()
+  titleToChange: EventEmitter<string> = new EventEmitter();
 
   constructor(
     private toastr: ToastrService,
@@ -52,10 +54,6 @@ export class CreditCardFormComponent implements OnChanges{
     this.form.get('cvv')?.valueChanges.subscribe({
       next: newValue => this.validEntryNumber(newValue, 'cvv')
     })
-
-    // this.form.get('dueDate')?.valueChanges.subscribe({
-    //   next: newValue => this.validEntryNumber(newValue, 'dueDate')
-    // })
 
     this.form.get('cardNumber')?.valueChanges.subscribe({
       next: newValue => this.validEntryNumber(newValue, 'cardNumber')
@@ -98,7 +96,7 @@ export class CreditCardFormComponent implements OnChanges{
       this._creditCardService.updateCard(this.id, card).subscribe({
         next: () => {
           this.form.reset();
-          this.action = "Agregar";
+          this.changeTitle("Agregar")
           this.id = undefined;
           this.toastr.info('La tarjeta fue actualizada con exito', 'Tarjeta actualizada')
           //this.getCreditCards();
@@ -117,5 +115,9 @@ export class CreditCardFormComponent implements OnChanges{
       entry = entry.replace(/[^0-9]/, '')
       this.form.patchValue({ [formControlName]: entry }, { emitEvent: false })
     }
+  }
+
+  changeTitle(title: string) {
+    this.titleToChange.emit(title);
   }
 }

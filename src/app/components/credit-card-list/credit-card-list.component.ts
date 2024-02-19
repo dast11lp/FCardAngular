@@ -21,6 +21,9 @@ export class CreditCardListComponent {
   @Output()
   updateList: EventEmitter<boolean> = new EventEmitter();
 
+  @Output()
+  titleToChange: EventEmitter<string> = new EventEmitter();
+
 
   constructor(
     private _creditCardService: CreditCardServeService,
@@ -41,6 +44,7 @@ export class CreditCardListComponent {
 
   editCard(card: any): void {
     // this.action = "Editar";
+    this.titleToChange.emit('Editar')
     this.editInfo.emit(
       {
         card:{

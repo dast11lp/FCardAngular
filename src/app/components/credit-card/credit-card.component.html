@@ -13,6 +13,7 @@
         <div class="col-lg-6">
             <app-credit-card-form 
                 (updateList)="getCreditCards()" 
+                (titleToChange)="changeTitle($event)"
                 [info]="info"
                 [inputEvent]="inputEvent"
             >
@@ -23,6 +24,7 @@
                 (editInfo)="getEditInfo($event)" 
                 [listCards]="listCards"
                 (updateList)="getCreditCards()"
+                (titleToChange)="changeTitle($event)"
             >
             </app-credit-card-list>
         </div>

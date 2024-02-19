@@ -46,7 +46,7 @@ export class CreditCardComponent {
     this.info = info;
   }
 
-  changeTitle():void {
-
+  changeTitle(title: string):void {
+    this.title = title
   }
 }
