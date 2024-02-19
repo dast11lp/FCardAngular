@@ -7,4 +7,5 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'addcard', component: CreditCardComponent},
     {path: 'backaccount/:id', component: BankAccounttComponent},
+    {path: '', redirectTo: '/home', pathMatch: 'full'}, 
 ];
