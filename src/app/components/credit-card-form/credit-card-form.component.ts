@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CreditCardServeService } from '../../services/credit-card-http.service';
+import { CreditCard } from '../credit-card/credit-card';
 
 @Component({
   selector: 'app-credit-card-form',
@@ -70,11 +71,13 @@ export class CreditCardFormComponent implements OnChanges{
   }
 
   saveCard(): void {
-    const card: any = {
+    const card: CreditCard = {
       holder: this.form.get('holder')?.value,
       cardNumber: this.form.get('cardNumber')?.value,
       dueDate: this.form.get('dueDate')?.value,
       cvv: this.form.get('cvv')?.value,
+      id: undefined,
+      bankAccountId: undefined,
     }
 
     if (this.id === undefined) {

@@ -5,6 +5,7 @@ import { UpperCasePipe } from '@angular/common';
 import { CreditCardFormComponent } from '../credit-card-form/credit-card-form.component';
 import { CreditCardListComponent } from '../credit-card-list/credit-card-list.component';
 import { CreditCardServeService } from '../../services/credit-card-http.service';
+import { CreditCard } from './credit-card';
 
 @Component({
   selector: 'app-credit-card',
@@ -19,15 +20,13 @@ import { CreditCardServeService } from '../../services/credit-card-http.service'
   styleUrl: './credit-card.component.css'
 })
 export class CreditCardComponent {
-  listCards: any[] = [];
-  title = "Agregar";
+  listCards: CreditCard[] = [];
+  title: string = "Agregar";
   id: number | undefined;
   info: any;
   inputEvent: any;
 
   constructor(
-    // private fb: FormBuilder,
-    private toastr: ToastrService,
     private _creditCardService: CreditCardServeService
   ) { }
 

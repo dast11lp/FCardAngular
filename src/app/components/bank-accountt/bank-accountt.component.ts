@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BankAccounttService } from '../../services/bankAccountt/bank-accountt.service';
+import { BankAccount } from './bank-account';
 
 @Component({
   selector: 'app-bank-accountt',
@@ -12,7 +13,7 @@ import { BankAccounttService } from '../../services/bankAccountt/bank-accountt.s
 export class BankAccounttComponent implements OnInit {
 
   paramId!: string | null;
-  bankaccount: any;
+  bankaccount!: BankAccount;
 
   constructor (
     private activatedRoute: ActivatedRoute,
