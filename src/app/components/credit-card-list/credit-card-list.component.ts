@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CreditCardServeService } from '../../services/credit-card-http.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-credit-card-list',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './credit-card-list.component.html',
   styleUrl: './credit-card-list.component.css'
 })

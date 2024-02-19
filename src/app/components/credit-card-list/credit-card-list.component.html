@@ -11,6 +11,7 @@
                     <td>{{card.cardNumber}}</td>
                     <td>{{card.dueDate}}</td>
                     <td>{{card.cvv}}</td>
+                    <td><a [routerLink]="['/backaccount/', card.bankAccountId]">mi cuenta</a></td>
                     <td>
                         <i (click)="editCard(card)" class="far fa-regular fa-pen-to-square text-info"></i>
                     </td>
