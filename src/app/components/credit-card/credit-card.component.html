@@ -3,14 +3,28 @@
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="title"> {{ action | uppercase }} Tarjeta</h3>
+                    <h3 class="title"> {{ title | uppercase }} Tarjeta</h3>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row mt-4">
-        <app-credit-card-form (updateList)="getCreditCards()" [info]="info" ></app-credit-card-form>
-        <app-credit-card-list (editInfo)="getEditInfo($event)" [listCards]="listCards" (updateList)="getCreditCards()"></app-credit-card-list>
+        <div class="col-lg-6">
+            <app-credit-card-form 
+                (updateList)="getCreditCards()" 
+                [info]="info"
+                [inputEvent]="inputEvent"
+            >
+            </app-credit-card-form>
+        </div>
+        <div class="col-lg-6">
+            <app-credit-card-list 
+                (editInfo)="getEditInfo($event)" 
+                [listCards]="listCards"
+                (updateList)="getCreditCards()"
+            >
+            </app-credit-card-list>
+        </div>
     </div>
 </div>

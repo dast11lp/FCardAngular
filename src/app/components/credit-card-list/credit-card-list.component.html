@@ -1,27 +1,25 @@
-<div class="col-lg-6">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="title">
-                LISTADO DE TARJETAS
-            </h5>
-            <table class="table">
-                <tbody>
-                    @for (card of listCards; track card.cardNumber; let index=$index) {
-                    <tr>
-                        <td>{{card.holder}}</td>
-                        <td>{{card.cardNumber}}</td>
-                        <td>{{card.cvv}}</td>
-                        <td>
-                            <i (click)="editCard(card)" class="far fa-regular fa-pen-to-square text-info"></i>
-                        </td>
-                        <td>
-                            <i (click)="deleteCard(card.id)" class="far fa-regular fa-trash-can text-danger"></i>
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
+<div class="card">
+    <div class="card-body">
+        <h5 class="title">
+            LISTADO DE TARJETAS
+        </h5>
+        <table class="table">
+            <tbody>
+                @for (card of listCards; track card.cardNumber; let index=$index) {
+                <tr>
+                    <td>{{card.holder}}</td>
+                    <td>{{card.cardNumber}}</td>
+                    <td>{{card.cvv}}</td>
+                    <td>
+                        <i (click)="editCard(card)" class="far fa-regular fa-pen-to-square text-info"></i>
+                    </td>
+                    <td>
+                        <i (click)="deleteCard(card.id)" class="far fa-regular fa-trash-can text-danger"></i>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
 
-        </div>
     </div>
 </div>

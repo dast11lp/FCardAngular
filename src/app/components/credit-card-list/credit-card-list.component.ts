@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, input } from '@angular/core';
-import { CreditCardServeService } from '../../Service/credit-card-http.service';
 import { ToastrService } from 'ngx-toastr';
+import { CreditCardServeService } from '../../services/credit-card-http.service';
 
 @Component({
   selector: 'app-credit-card-list',
@@ -29,9 +29,8 @@ export class CreditCardListComponent {
   }
 
   deleteCard(id: number): void {
-    // this.listCards.splice(index, 1);
     this._creditCardService.deleteCard(id).subscribe({
-      next: data => {
+      next: () => {
         this.toastr.error("La tarjeta fue eliminada con exito", "Tarjeta eliminada",)
         this.updateList.emit();
       },
@@ -41,7 +40,6 @@ export class CreditCardListComponent {
 
   editCard(card: any): void {
     // this.action = "Editar";
-    // this.id = card.id;
     this.editInfo.emit(
       {
         card:{
@@ -53,6 +51,5 @@ export class CreditCardListComponent {
         id: card.id
       }
     );
-    // this.form.patchValue()
   }
 }
